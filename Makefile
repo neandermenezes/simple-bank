@@ -19,4 +19,10 @@ sqlc:
 test:
 	go test -v -cover ./...
 
-.PHONY: createdb 
+server:
+	go run main.go
+
+mock:
+	mockgen -destination ./db/mock/store.go -package mock_db simplebank/db/sqlc Store
+
+.PHONY: createdb dropdb migrateup migratedown sqlc test server mock
