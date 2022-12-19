@@ -2,7 +2,7 @@ package db
 
 import (
 	"context"
-	"simplebank/db/utils"
+	db_utils "simplebank/db/utils"
 	"testing"
 	"time"
 
@@ -13,7 +13,7 @@ func createRandomTransfer(t *testing.T, account1, account2 Account) Transfer {
 	arg := CreateTransferParams{
 		FromAccountID: account1.ID,
 		ToAccountID:   account2.ID,
-		Amount:        utils.RandomMoney(),
+		Amount:        db_utils.RandomMoney(),
 	}
 
 	transfer, err := MockQueries.CreateTransfer(context.Background(), arg)

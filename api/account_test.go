@@ -10,7 +10,7 @@ import (
 	"net/http/httptest"
 	mock_db "simplebank/db/mock"
 	db "simplebank/db/sqlc"
-	"simplebank/db/utils"
+	db_utils "simplebank/db/utils"
 	"testing"
 
 	"github.com/golang/mock/gomock"
@@ -99,10 +99,10 @@ func TestGetAccountAPI(t *testing.T) {
 
 func randomAccount() db.Account {
 	return db.Account{
-		ID:       utils.RandomInt(1, 1000),
-		Owner:    utils.RandomOwner(),
-		Balance:  utils.RandomMoney(),
-		Currency: utils.RandomCurrency(),
+		ID:       db_utils.RandomInt(1, 1000),
+		Owner:    db_utils.RandomOwner(),
+		Balance:  db_utils.RandomMoney(),
+		Currency: db_utils.RandomCurrency(),
 	}
 }
 

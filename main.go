@@ -5,14 +5,14 @@ import (
 	"log"
 	"simplebank/api"
 	db "simplebank/db/sqlc"
-	"simplebank/db/utils"
+	db_utils "simplebank/db/utils"
 
 	_ "github.com/golang/mock/mockgen/model"
 	_ "github.com/lib/pq"
 )
 
 func main() {
-	config, err := utils.LoadConfig(".")
+	config, err := db_utils.LoadConfig(".")
 	if err != nil {
 		log.Fatal("cannot load config:", err)
 	}

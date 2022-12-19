@@ -2,7 +2,7 @@ package db
 
 import (
 	"context"
-	"simplebank/db/utils"
+	db_utils "simplebank/db/utils"
 	"testing"
 	"time"
 
@@ -11,9 +11,9 @@ import (
 
 func createRandomAccount(t *testing.T) Account {
 	arg := CreateAccountParams{
-		Owner:    utils.RandomOwner(),
-		Balance:  utils.RandomMoney(),
-		Currency: utils.RandomCurrency(),
+		Owner:    db_utils.RandomOwner(),
+		Balance:  db_utils.RandomMoney(),
+		Currency: db_utils.RandomCurrency(),
 	}
 
 	account, err := MockQueries.CreateAccount(context.Background(), arg)
@@ -52,7 +52,7 @@ func TestUpdateAccount(t *testing.T) {
 
 	arg := UpdateAccountParams{
 		ID:      account1.ID,
-		Balance: utils.RandomMoney(),
+		Balance: db_utils.RandomMoney(),
 	}
 
 	account2, err := MockQueries.UpdateAccount(context.Background(), arg)

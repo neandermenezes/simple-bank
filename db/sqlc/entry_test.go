@@ -2,7 +2,7 @@ package db
 
 import (
 	"context"
-	"simplebank/db/utils"
+	db_utils "simplebank/db/utils"
 	"testing"
 	"time"
 
@@ -12,7 +12,7 @@ import (
 func createRandomEntry(t *testing.T, account Account) Entry {
 	arg := CreateEntryParams{
 		AccountID: account.ID,
-		Amount:    utils.RandomMoney(),
+		Amount:    db_utils.RandomMoney(),
 	}
 
 	entry, err := MockQueries.CreateEntry(context.Background(), arg)
