@@ -14,11 +14,11 @@ jobs:
 
     services:
       postgres:
-        image: postgres:15
+        image: postgres:14-alpine
         env:
-          POSTGRES_PASSWORD: secret
           POSTGRES_USER: root
-          POSTGRES_DB: simple-bank
+          POSTGRES_PASSWORD: secret
+          POSTGRES_DB: postgres
 
         options: >-
           --health-cmd pg_isready
@@ -42,7 +42,7 @@ jobs:
     - name: install golang-migrate
       run: |
         curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.linux-amd64.tar.gz | tar xvz
-        sudp mv migrate.linux-amd64 /usr/bin/migrate
+        sudo mv migrate.linux-amd64 /usr/bin/migrate
         which migrate
 
     - name: Run migrations
