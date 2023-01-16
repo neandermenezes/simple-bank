@@ -7,6 +7,9 @@ import (
 	db "simplebank/db/sqlc"
 	db_utils "simplebank/db/utils"
 
+	_ "github.com/golang-migrate/migrate/v4"
+	_ "github.com/golang-migrate/migrate/v4/database/postgres"
+	_ "github.com/golang-migrate/migrate/v4/source/file"
 	_ "github.com/golang/mock/mockgen/model"
 	_ "github.com/lib/pq"
 )

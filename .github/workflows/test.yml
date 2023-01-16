@@ -1,4 +1,4 @@
-name: ci-test
+name: run unit tests
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         env:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: secret
-          POSTGRES_DB: postgres
+          POSTGRES_DB: simple-bank
 
         options: >-
           --health-cmd pg_isready
